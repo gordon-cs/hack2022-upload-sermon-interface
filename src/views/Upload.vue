@@ -12,7 +12,7 @@
     components: {
       // HelloWorld,
       Page,
-    }
+    },
   }
   </script>
   

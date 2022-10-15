@@ -39,11 +39,21 @@ export default {
             console.log("removed: ", tag);
             this.tagList.splice(this.tagList.indexOf(tag), 1);
         },
-        addTag(label) {
-            if (label?.trim()) {
+        addTag(newLabel) {
+            if (newLabel) {
+
                 let id = this.id;
-                this.tagList.push({id, label});
-                this.id++;
+
+                if (this.tagList.findIndex(e => e.label == newLabel) > -1) {
+                    alert("This tag already existed.");
+                }
+                else {
+                    let newTag = {id: id, label: newLabel};
+                    console.log("Added: ", newTag);
+
+                    this.tagList.push(newTag);
+                    this.id++;
+                }
             }
             else {
                 alert("The input cannot be empty.");
